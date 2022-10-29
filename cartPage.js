@@ -1,3 +1,7 @@
+import { cartItems } from "./store"
+
+console.log(cartItems);
+
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -23,7 +27,8 @@ function ready() {
         button.addEventListener('click', addToCartClicked)
     }
 
-    //document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+    // const purchaseBtn = document.getElementsByClassName('btn-purchase')[0];
+    // purchaseBtn.addEventListener('click', purchaseClicked)
 }
 
 function purchaseClicked() {
@@ -51,10 +56,12 @@ function quantityChanged(event) {
 
 function addToCartClicked(event) {
     var button = event.target
+    
     var shopItem = button.parentElement.parentElement
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
     var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+    // console.log(`${title}, ${price}, ${imageSrc}`);
     addItemToCart(title, price, imageSrc)
     updateCartTotal()
 }
@@ -62,7 +69,8 @@ function addToCartClicked(event) {
 function addItemToCart(title, price, imageSrc) {
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
+    var cartItems = document.getElementById('cart-items');  
+    console.log(cartItems);
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
     for (var i = 0; i < cartItemNames.length; i++) {
         if (cartItemNames[i].innerText == title) {
@@ -101,5 +109,3 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 }
-
-
