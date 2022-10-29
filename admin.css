@@ -1,0 +1,106 @@
+.main__container{
+    display: flex;
+}
+
+.admin__showProducts{
+    width: 60vw;
+    min-height: 70vh;
+    border-right:solid 2px grey ;
+}
+
+.admin__createProducts{
+    width: 40vw;
+    
+}
+
+
+
+#form{
+    
+    width: 90%;
+    padding: 3rem;
+    border: none;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form__components{
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    margin: 2rem;
+}
+
+.form__components input{
+    font-size: 1.5rem;
+    margin-top: 0.3rem;
+    margin-bottom: .8rem;
+    
+}
+
+#addProduct_btn{
+    padding: 0.8rem;
+    width: 13vw;
+    background-color: rebeccapurple;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    border-radius: 10%;
+
+}
+.admin__showProducts{
+    padding: 0.8rem;
+}
+
+.products__container{
+    
+    background-color:aqua;
+    display: grid;
+    grid-template-columns: 40% 40%;
+}
+
+.admin-Product__item{
+    width: 55%;
+    background-color: rgb(207, 192, 192);
+    
+    margin:1rem;
+    border-radius: 5%;
+}
+.product__details{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.product__details img{
+    width: 10rem;
+}
+
+.admin-Product__item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-Product__item:hover{
+    box-shadow: 2px 3px rgb(173, 169, 169);
+}
+
+.button{
+    background-color: rebeccapurple;
+    width: 40%;
+    border: none;
+    padding: 0.5rem;
+    color: white;
+    margin: 0.3rem;
+    border-radius: 10%;
+}
+
+button:hover{
+    background-color: aqua;
+    font-weight: bolder;
+    
+}
