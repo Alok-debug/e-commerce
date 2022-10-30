@@ -325,3 +325,29 @@ html, body {
     margin: 40px auto 80px auto;
     font-size: 1.75em;
 }
+
+
+#pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#pagination button{
+    padding: 0.5rem;
+    margin: 1rem;
+    font-size: larger;
+    color: black;
+    width: 2rem;
+}
+
+#pagination button:hover{
+    box-shadow: 2px 2px blue;
+    padding: 0.8rem;
+}
+
+.active{
+    padding: 1rem;
+    background-color: rebeccapurple;
+    color: white;
+}

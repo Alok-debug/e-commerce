@@ -1,7 +1,10 @@
-document.addEventListener('DOMContentLoaded',()=>{
-    axios.get('http://localhost:3000/products')
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    axios.get('http://localhost:3000/products?page=1')
         .then((res) => {
             const products = res.data;
+            console.log(products);
             for (let i = 0; i < products.length ; i++){
                 addProductsToStorePage(products[i]);
             }
@@ -39,13 +42,28 @@ function doSomeThing(e) {
         if (e.target.parentElement.parentElement.id in cartItems) {
             return
         }
-        
+
         axios.post(`http://localhost:3000/cart/${prodId}`)
             .then(result => {
                 console.log(result);
             })
             .catch(err=>console.log(err))
         
+    }
+    if (Number.isInteger(+e.target.innerText) && e.target.parentElement.id==="pagination") {
+        // console.log(e.target.innerText);
+        axios.get(`http://localhost:3000/products?page=${e.target.innerText}`)
+        .then((res) => {
+            const products = res.data;
+            e.target.classList.add('active');
+            for (let i = 0; i < products.length ; i++){
+                addProductsToStorePage(products[i]);
+            }
+            return
+        })
+        .catch(err => {
+        console.log(err)
+    })
     }
 }
 
