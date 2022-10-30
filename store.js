@@ -21,6 +21,7 @@ function addProductsToStorePage(product) {
     <img class="shop-item-image" src=${product.imageUrl}>
     <div class="shop-item-details">
         <span class="shop-item-price">$${product.price}</span>
+         
         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
     </div>`
     productcontainer.innerHTML = productContent
@@ -33,16 +34,21 @@ document.addEventListener('click', doSomeThing);
 
 function doSomeThing(e) {
     if (e.target.innerText === "ADD TO CART") {
+        let prodId = e.target.parentElement.parentElement.id;
         //console.log(e.target.parentElement.parentElement.id);
         if (e.target.parentElement.parentElement.id in cartItems) {
             return
         }
-        cartItems.push(e.target.parentElement.parentElement.id);
-        console.log(cartItems);
+        
+        axios.post(`http://localhost:3000/cart/${prodId}`)
+            .then(result => {
+                console.log(result);
+            })
+            .catch(err=>console.log(err))
+        
     }
 }
 
+ 
 
-
-// exports.module= { cartItems };
 
