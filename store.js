@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     axios.get('http://localhost:3000/products?page=1')
         .then((res) => {
             const products = res.data;
-            console.log(products);
+            //console.log(products);
             for (let i = 0; i < products.length ; i++){
                 addProductsToStorePage(products[i]);
             }

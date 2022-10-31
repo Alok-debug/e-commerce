@@ -114,7 +114,8 @@ function doSomeThing(e) {
         
     }
 
-    if (e.target.innerText === "PURCHASE") {
+    if (e.target.innerText === "Order Now") {
+
 
         axios.post('http://localhost:3000/create-order')
             .then(result => {
